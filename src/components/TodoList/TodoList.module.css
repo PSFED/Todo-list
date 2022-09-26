@@ -1,0 +1,7 @@
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 30px;
+  align-items: center;
+}
