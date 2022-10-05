@@ -1,9 +1,10 @@
+import Button from '../UI/Button'
 import styles from './СontrolPanel.module.css'
 const СontrolPanel = () => {
   return (
     <div className={styles.panel}>
-      <button className="button">Reset Todos</button>
-      <button className="button">Clear done Todos</button>
+      <Button>Reset Todos</Button>
+      <Button>Clear done Todos</Button>
     </div>
   )
 }

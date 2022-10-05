@@ -1,28 +1,31 @@
-import { useRef } from 'react'
+import { useState } from 'react'
+import Button from '../UI/Button'
 import styles from './CreateTask.module.css'
-const CreateTask = ({ onTask }) => {
-  const inputRef = useRef()
+const CreateTask = ({ addTodo }) => {
+  const [text, setText] = useState('')
 
-  const taskHandler = (e) => {
+  const onSubmitHandler = (e) => {
     e.preventDefault()
-    let value = inputRef.current.value
-    if (inputRef.current.value.trim().length > 0) {
-      onTask({
+
+    if (text.trim().length > 0) {
+      addTodo({
         id: Math.random() * 100,
-        text: value,
+        text: text,
       })
     }
+    setText('')
   }
 
   return (
-    <form onSubmit={taskHandler} className={styles.form}>
+    <form onSubmit={onSubmitHandler} className={styles.form}>
       <input
-        ref={inputRef}
         className={styles.input}
         type="text"
         placeholder="Enter new todo"
+        onChange={(e) => setText(e.target.value)}
+        value={text}
       />
-      <button className="button">Submit</button>
+      <Button>Submit</Button>
     </form>
   )
 }

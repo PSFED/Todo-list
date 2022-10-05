@@ -1,14 +1,19 @@
 import Todo from './Todo/Todo'
 import styles from './TodoList.module.css'
 
-const TodoList = ({ todo }) => {
+const TodoList = ({ todos, removeTodo }) => {
   return (
     <div className={styles.inner}>
-      {
-      todo.map((item) => {
-        return <Todo key={item.id} text={item.text} />
-      })
-      }
+      {todos.map((todo) => {
+        return (
+          <Todo
+            key={todo.id}
+            removeTodo={removeTodo}
+            id={todo.id}
+            text={todo.text}
+          />
+        )
+      })}
     </div>
   )
 }
